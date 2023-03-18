@@ -1,15 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
+   const { pathname } = useLocation();
+
+   function getColor(path) {
+      if (path === pathname) return 'font-semibold';
+      return '';
+   }
+
    return (
       <nav className='py-4 2xl:px-6'>
          <div className='container flex items-center justify-between'>
             <img src='/assets/icons/logo.svg' width='150px' className='object-contain' />
             <ul className='hidden md:flex items-center space-x-6'>
-               <Link className='font-semibold cursor-pointer' to='/' id='lws-bookStore'>
+               <Link className={`cursor-pointer ${getColor('/')}`} to='/' id='lws-bookStore'>
                   <li>Book Store</li>
                </Link>
-               <Link className='cursor-pointer' to='/add' id='lws-addBook'>
+               <Link className={`cursor-pointer ${getColor('/add')}`} to='/add' id='lws-addBook'>
                   <li>Add Book</li>
                </Link>
             </ul>
