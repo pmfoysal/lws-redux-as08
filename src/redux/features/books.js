@@ -27,7 +27,7 @@ const books = createApi({
             method: 'PATCH',
             body: data,
          }),
-         invalidatesTags: (...args) => [{ type: 'book', id: args[2].id }],
+         invalidatesTags: (...args) => ['books', { type: 'book', id: args[2].id }],
       }),
       deleteBook: builder.mutation({
          query: id => ({
