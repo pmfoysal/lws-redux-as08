@@ -30,7 +30,7 @@ export default function Form({ mode }) {
             </label>
          </div>
          <button type='submit' class='submit' id='lws-submit'>
-            {mode === 'add' ? 'Add Book' : ''}
+            {mode === 'add' ? 'Add Book' : 'Edit Book'}
          </button>
       </form>
    );
